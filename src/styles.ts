@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   red: '#E66767',
-  background: '#FFF8F2'
+  background: '#FFF8F2',
+  footerBackground: '#FFEBD9'
 }
 
 export const GlobalCSS = createGlobalStyle`
