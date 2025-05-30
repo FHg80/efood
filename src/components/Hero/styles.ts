@@ -6,6 +6,7 @@ export const Imagem = styled.div`
 export const HeroContainer = styled.div`
   padding: 40px 0;
   text-align: center;
+  margin-bottom: 80px;
 `
 export const Logo = styled.img`
   margin-top: 24px;
