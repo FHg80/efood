@@ -4,13 +4,15 @@ class Restaurant {
   description: string
   image: string
   rating: number
+  infos: string[]
 
-  constructor(id:number, name: string, description: string, image: string, rating: number) {
+  constructor(id:number, name: string, description: string, image: string, rating: number, infos: string[]) {
     this.id = id
     this.name = name
     this.description = description
     this.image = image
     this.rating = rating
+    this.infos = infos
   }
 }
 

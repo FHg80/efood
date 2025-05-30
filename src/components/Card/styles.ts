@@ -40,6 +40,7 @@ export const Link = styled.a`
   color: white;
   background-color: ${cores.red};
   padding: 4px 6px;
+  font-size: 14px;
 `
 
 export const LowerCard = styled.div`
@@ -48,4 +49,11 @@ export const LowerCard = styled.div`
 
 export const ContentContainer = styled.div`
   margin-bottom: 40px;
+  position: relative;
+`
+
+export const Infos = styled.div`
+  position: absolute;
+  top: 22px;
+  right: 18px;
 `

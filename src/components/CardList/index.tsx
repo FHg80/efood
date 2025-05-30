@@ -19,6 +19,7 @@ const CardList = ({ restaurants }: Props) => (
       image={restaurant.image}
       description={restaurant.description}
       rating={restaurant.rating}
+      infos={restaurant.infos}
       />
     ))}
   </CardsContainer>
