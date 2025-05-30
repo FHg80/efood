@@ -45,3 +45,7 @@ export const Link = styled.a`
 export const LowerCard = styled.div`
   margin-bottom: 8px;
 `
+
+export const ContentContainer = styled.div`
+  margin-bottom: 40px;
+`

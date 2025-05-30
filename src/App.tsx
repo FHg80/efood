@@ -1,17 +1,15 @@
+import { BrowserRouter } from 'react-router-dom'
+
 import { GlobalCSS } from './styles'
 
-import Hero from './components/Hero';
-import CardList from './components/CardList';
+import Rotas from './routes';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalCSS />
-      <Hero />
-      <div className='container'>
-        <CardList/>
-      </div>
-    </>
+      <Rotas />
+    </BrowserRouter>
 
   );
 }
