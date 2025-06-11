@@ -35,7 +35,7 @@ export const Description = styled.p`
   font-size: 14px;
 `
 
-export const Link = styled.a`
+export const LinkS = styled.a`
   text-decoration: none;
   color: white;
   background-color: ${cores.red};

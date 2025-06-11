@@ -27,4 +27,8 @@ export const GlobalCSS = createGlobalStyle`
     max-width: 1024px;
     margin: 0 auto;
   }
+
+  .link {
+    text-decoration: none;
+  }
 `

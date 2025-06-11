@@ -1,4 +1,6 @@
-import { ContentContainer, CardContainer, Imagem, Infos, UpCard, LowerCard, ImgAvaliacao, RatingContainer, CardTitle, Description, Link } from './styles'
+import { Link } from 'react-router-dom'
+
+import { ContentContainer, CardContainer, Imagem, Infos, UpCard, LowerCard, ImgAvaliacao, RatingContainer, CardTitle, Description, LinkS } from './styles'
 
 import estrela from '../../assets/images/estrela.png'
 import Tag from '../Tag'
@@ -30,7 +32,9 @@ const Card = ({ title, image, description, rating, infos }: Props) => (
         </UpCard>
         <LowerCard>
           <Description>{description}</Description>
-          <Link href="">Saiba mais</Link>
+          <Link to="/profile" className="link">
+            <LinkS>Saiba mais</LinkS>
+          </Link>
         </LowerCard>
       </CardContainer>
   </ContentContainer>
