@@ -7,7 +7,7 @@ export const Imagem = styled.div`
 
 export const HeaderContainer = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 `
 
