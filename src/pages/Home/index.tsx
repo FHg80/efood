@@ -1,9 +1,6 @@
 import CardList from "../../components/CardList"
 import Hero from "../../components/Hero"
 
-import sushi from '../../assets/images/sushi.png'
-import trattoria from '../../assets/images/trattoria.png'
-import spaghetti from '../../assets/images/spaghetti.png'
 import { useEffect, useState } from "react"
 
 

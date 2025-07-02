@@ -24,6 +24,7 @@ const CardList = ({ restaurantes }: Props) => {
         rating={restaurante.avaliacao}
         info={restaurante.tipo}
         destacado={restaurante.destacado}
+        id={restaurante.id}
         />
       ))}
     </CardsContainer>

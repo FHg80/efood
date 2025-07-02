@@ -12,10 +12,11 @@ type Props = {
   rating: number
   info: string
   destacado: boolean
+  id: number
 }
 
 
-const Card = ({ title, image, description, rating, info, destacado }: Props) => {
+const Card = ({ title, image, description, rating, info, destacado, id }: Props) => {
 
   return (
     <ContentContainer>
@@ -36,7 +37,7 @@ const Card = ({ title, image, description, rating, info, destacado }: Props) => 
           </UpCard>
           <LowerCard>
             <Description>{description}</Description>
-            <Link to="/profile" className="link">
+            <Link to={`/profile/${id}`} className="link">
               <LinkS>Saiba mais</LinkS>
             </Link>
           </LowerCard>

@@ -1,14 +1,18 @@
-import spaghetti from '../../assets/images/spaghetti.png'
-
 import { Imagem, ImagemOverlay, Categoria, BannerContainer, NomeRestaurante } from './styles'
 
-const Banner = () => (
-  <Imagem style={{backgroundImage: `url(${spaghetti})`}}>
+type Props = {
+  imagem: string
+  categoria: string
+  nome: string
+}
+
+const Banner = ({ imagem, categoria, nome }: Props) => (
+  <Imagem style={{backgroundImage: `url(${imagem})`}}>
     <ImagemOverlay />
     <div className="container">
       <BannerContainer>
-        <Categoria>Italiana</Categoria>
-        <NomeRestaurante>La Dolce Vita Trattoria</NomeRestaurante>
+        <Categoria>{categoria}</Categoria>
+        <NomeRestaurante>{nome}</NomeRestaurante>
       </BannerContainer>
     </div>
   </Imagem>

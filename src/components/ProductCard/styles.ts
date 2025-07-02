@@ -7,6 +7,12 @@ export const CardContainer = styled.div`
   padding: 8px;
   color: ${cores.white2};
   font-size: 14px;
+
+  img {
+    height: 166px;
+    width: 100%;
+    object-fit: cover;
+  }
 `
 export const NomeProduto = styled.h4`
   font-size: 16px;
