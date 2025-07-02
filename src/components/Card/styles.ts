@@ -8,7 +8,6 @@ export const CardContainer = styled.div`
   height: 182px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 48px;
 `
 export const Imagem = styled.img`
   display: block;
@@ -58,7 +57,7 @@ export const LowerCard = styled.div`
 `
 
 export const ContentContainer = styled.div`
-  margin-bottom: px;
+  margin-bottom: 48px;
   position: relative;
 `
 
