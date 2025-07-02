@@ -7,6 +7,10 @@ export const CardContainer = styled.div`
   padding: 8px;
   color: ${cores.white2};
   font-size: 14px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   img {
     height: 166px;
@@ -32,4 +36,5 @@ export const Botao = styled.button`
   font-weight: 700;
   border: none;
   cursor: pointer;
+  width: 305px;
 `

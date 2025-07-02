@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import pizza from '../../assets/images/pizza.png'
 
 import { CardContainer, NomeProduto, DescProduto, Botao } from './styles'
@@ -7,10 +8,13 @@ type Props = {
   nome: string
   descricao: string
   id: number
+  onClick: () => void
 }
 
 
-const ProductCard = ({ imagem, nome, descricao, id }: Props) => {
+
+
+const ProductCard = ({ imagem, nome, descricao, id, onClick }: Props) => {
 
   const getDescricao = (descricao: string) => {
     if(descricao.length > 132) {
@@ -20,12 +24,15 @@ const ProductCard = ({ imagem, nome, descricao, id }: Props) => {
   }
 
   return (
-    <CardContainer>
-      <img src={imagem} alt="Pizza" />
-      <NomeProduto>{nome}</NomeProduto>
-      <DescProduto>{getDescricao(descricao)}</DescProduto>
-      <Botao type='button'>Adicionar ao carrinho</Botao>
-    </CardContainer>
+    <>
+      <CardContainer>
+        <img src={imagem} alt="Pizza" />
+        <NomeProduto>{nome}</NomeProduto>
+        <DescProduto>{getDescricao(descricao)}</DescProduto>
+        <Botao type='button' onClick={onClick}>Mais detalhes</Botao>
+      </CardContainer>
+
+    </>
   )
 
 }
