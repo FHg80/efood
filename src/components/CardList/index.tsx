@@ -4,25 +4,30 @@ import sushi from '../../assets/images/sushi.png'
 import trattoria from '../../assets/images/trattoria.png'
 
 import {CardsContainer} from './styles'
-import Restaurant from "../../models/Restaurant"
+import { Restaurante } from "../../pages/Home"
+
 
 type Props = {
-  restaurants : Restaurant[]
+  restaurantes : Restaurante[]
 }
 
-const CardList = ({ restaurants }: Props) => (
-  <CardsContainer>
-    {restaurants.map((restaurant) => (
-      <Card
-      key={restaurant.id}
-      title={restaurant.name}
-      image={restaurant.image}
-      description={restaurant.description}
-      rating={restaurant.rating}
-      infos={restaurant.infos}
-      />
-    ))}
-  </CardsContainer>
-)
+const CardList = ({ restaurantes }: Props) => {
+
+  return (
+    <CardsContainer>
+      {restaurantes.map((restaurante: Restaurante) => (
+        <Card
+        key={restaurante.id}
+        title={restaurante.titulo}
+        image={restaurante.capa}
+        description={restaurante.descricao}
+        rating={restaurante.avaliacao}
+        info={restaurante.tipo}
+        destacado={restaurante.destacado}
+        />
+      ))}
+    </CardsContainer>
+  )
+}
 
 export default CardList

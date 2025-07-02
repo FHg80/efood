@@ -5,10 +5,16 @@ export const CardContainer = styled.div`
   padding: 8px;
   border: 1px solid ${cores.red};
   border-top: none;
+  height: 182px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
 `
 export const Imagem = styled.img`
   display: block;
   width: 100%;
+  height: 220px;
+  object-fit: cover;
 `
 export const UpCard = styled.div`
   display: flex;
@@ -35,7 +41,7 @@ export const Description = styled.p`
   font-size: 14px;
 `
 
-export const LinkS = styled.a`
+export const LinkS = styled.span`
   text-decoration: none;
   color: white;
   background-color: ${cores.red};
@@ -45,10 +51,14 @@ export const LinkS = styled.a`
 
 export const LowerCard = styled.div`
   margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `
 
 export const ContentContainer = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: px;
   position: relative;
 `
 
