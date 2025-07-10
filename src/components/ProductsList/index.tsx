@@ -6,10 +6,19 @@ import ProductCard from "../ProductCard"
 import fechar from '../../assets/images/fechar.png'
 
 import { ProductsListContainer, Modal, ModalContent } from './styles'
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from "react-redux"
 
 type Props = {
   cardapio: Comida[]
 }
+
+export const formataPreco = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
 
 const ProductsList = ({ cardapio }: Props) => {
 
@@ -19,7 +28,7 @@ const ProductsList = ({ cardapio }: Props) => {
   const [descricao, setDescricao] = useState('')
   const [porcao, setPorcao] = useState('')
   const [preco, setPreco] = useState(0)
-
+  const [comida, setComida] = useState<Comida>()
 
   const abrirModal = (comida: Comida) => {
     setNome(comida.nome)
@@ -28,19 +37,19 @@ const ProductsList = ({ cardapio }: Props) => {
     setPorcao(comida.porcao)
     setPreco(comida.preco)
     setIsVisible(true)
+    setComida(comida)
   }
 
   const fecharModal = () => {
     setIsVisible(false)
   }
 
-  const formataPreco = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
+  const dispatch = useDispatch()
 
+  const addToCart = (comida: Comida) => {
+    dispatch(add(comida))
+    dispatch(open())
+  }
 
   return (
     <div className="container">
@@ -57,7 +66,7 @@ const ProductsList = ({ cardapio }: Props) => {
                 <img src={fechar} onClick={() => fecharModal()} />
                 <h3>{nome}</h3>
                 <p>{descricao}<br />Serve: {porcao}</p>
-                <button type='button'>Adicionar ao carrinho - {formataPreco(preco)}</button>
+                <button onClick={() => addToCart(comida!)} type='button'>Adicionar ao carrinho - {formataPreco(preco)}</button>
               </main>
             </ModalContent>
             <div className="overlay" onClick={() => fecharModal()} ></div>
