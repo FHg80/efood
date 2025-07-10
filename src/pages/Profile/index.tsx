@@ -5,6 +5,7 @@ import Banner from "../../components/Banner"
 import ProductsList from "../../components/ProductsList"
 import { useEffect, useState } from "react"
 import { Restaurante } from "../Home"
+import Cart from "../../components/Cart"
 
 const Profile = () => {
 
@@ -27,6 +28,7 @@ const Profile = () => {
         <Header />
         <Banner imagem={restaurante.capa} categoria={restaurante.tipo} nome={restaurante.titulo} />
         <ProductsList cardapio={restaurante.cardapio}/>
+        <Cart />
     </>
   )
 }
