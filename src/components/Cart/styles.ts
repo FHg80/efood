@@ -3,7 +3,7 @@ import { cores } from "../../styles";
 
 import lixeira from '../../assets/images/lixeira.png'
 
-export const CartContainer = styled.div`
+export const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -16,7 +16,7 @@ export const CartContainer = styled.div`
   &.is-open {
     display: flex;
   }
-`
+  `
 
 export const Overlay = styled.div`
   position: absolute;
@@ -28,12 +28,13 @@ export const Overlay = styled.div`
   opacity: 0.7;
 `
 
-export const Sidebar = styled.aside`
+export const CartContainer = styled.aside`
   z-index: 1;
   background-color: ${cores.red};
   padding: 32px 8px 0 8px;
   max-width: 360px;
   width: 100%;
+  display: none;
 
   button {
     max-width: 100%;
@@ -44,6 +45,10 @@ export const Sidebar = styled.aside`
     font-size: 14px;
     font-weight: bold;
     color: ${cores.red};
+  }
+
+  &.is-open {
+    display: block;
   }
 `
 
@@ -94,4 +99,75 @@ export const CartItem = styled.li`
   p {
     font-size: 14px;
   }
+`
+export const DeliveryContainer = styled.aside`
+  z-index: 1;
+  background-color: ${cores.red};
+  padding: 32px 8px 0 8px;
+  max-width: 360px;
+  width: 100%;
+  display: none;
+
+  button {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+    background-color: ${cores.white2};
+    padding: 4px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: ${cores.red};
+  }
+
+  &.is-open {
+    display: block;
+  }
+
+  h3 {
+    margin-bottom: 16px;
+  }
+
+  h3, label {
+    font-size: 16px;
+    font-weight: bold;
+    color: ${cores.white2};
+  }
+
+  label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    background-color: ${cores.white2};
+    color: ${cores.input};
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    margin-bottom: 8px;
+
+    &.margin-bottom {
+      margin-bottom: 24px;
+    }
+  }
+
+  button {
+    margin-bottom: 6px;
+  }
+
+
+`
+export const Complemento = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 34px;
+`
+
+export const Cartao = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 34px;
 `

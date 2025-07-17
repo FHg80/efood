@@ -5,7 +5,8 @@ export const cores = {
   background: '#FFF8F2',
   footerBackground: '#FFEBD9',
   white: '#FFF',
-  white2: '#FFEBD9'
+  white2: '#FFEBD9',
+  input: '#4B4B4B'
 }
 
 export const GlobalCSS = createGlobalStyle`
