@@ -16,7 +16,12 @@ export const Container = styled.div`
   &.is-open {
     display: flex;
   }
-  `
+
+  form {
+    z-index: 1;
+    height: 100%;
+  }
+`
 
 export const Overlay = styled.div`
   position: absolute;
@@ -26,6 +31,10 @@ export const Overlay = styled.div`
   width: 100%;
   background-color: #000;
   opacity: 0.7;
+
+  &.is-closed {
+    display: none;
+  }
 `
 
 export const CartContainer = styled.aside`
@@ -107,6 +116,7 @@ export const DeliveryContainer = styled.aside`
   max-width: 360px;
   width: 100%;
   display: none;
+  height: 100%;
 
   button {
     max-width: 100%;
@@ -158,6 +168,11 @@ export const DeliveryContainer = styled.aside`
     margin-bottom: 6px;
   }
 
+  p {
+    color: ${cores.white2};
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
 
 `
 export const Complemento = styled.div`
@@ -171,3 +186,11 @@ export const Cartao = styled.div`
   grid-template-columns: 2fr 1fr;
   column-gap: 34px;
 `
+export const ConfirmationContainer = styled.div`
+  display: none;
+
+  &.is-open {
+    display: block
+  }
+`
+

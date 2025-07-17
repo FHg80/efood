@@ -17,14 +17,14 @@ const Header = () => {
   }
 
   return (
-     <Imagem style={{backgroundImage: `url(${fundo})`}}>
+    <Imagem style={{backgroundImage: `url(${fundo})`}}>
       <div className='container'>
         <HeaderContainer>
           <InfosHeader>Restaurantes</InfosHeader>
           <Link to='/'>
             <img src={logo} alt="Efood" />
           </Link>
-          <InfosHeader onClick={openCart}>
+          <InfosHeader onClick={() => openCart()}>
             {items.length} produto(s) no carrinho
           </InfosHeader>
         </HeaderContainer>
