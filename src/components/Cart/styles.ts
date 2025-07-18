@@ -118,6 +118,10 @@ export const DeliveryContainer = styled.aside`
   display: none;
   height: 100%;
 
+  small {
+    color: ${cores.white2}
+  }
+
   button {
     max-width: 100%;
     width: 100%;
@@ -193,4 +197,5 @@ export const ConfirmationContainer = styled.div`
     display: block
   }
 `
+
 

@@ -8,6 +8,7 @@ import { RootReducer } from '../../store'
 import { formataPreco } from '../ProductsList'
 import { useState } from 'react'
 
+import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { usePurchaseMutation } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
@@ -36,6 +37,41 @@ const Cart = () => {
       expiresMonth: 12,
       expiresYear: 2025
     },
+    validationSchema: Yup.object({
+      receiverName: Yup.string()
+        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      addressDesc: Yup.string()
+        .min(5, 'O endereço precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      city: Yup.string()
+        .min(5, 'A cidade precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      zipCode: Yup.string()
+        .min(8, 'O CEP precisa ter 8 caracteres')
+        .max(8, 'O CEP precisa ter 8 caracteres')
+        .required('O campo é obrigatório'),
+      number: Yup.number().required('O campo é obrigatório'),
+      complement: Yup.string(),
+      cardName: Yup.string()
+        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      cardNumber: Yup.string()
+        .min(5, 'O número precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      cardCode: Yup.string()
+        .min(3, 'O CVV precisa ter 3 caracteres')
+        .max(3, 'O CVV precisa ter 3 caracteres')
+        .required('O campo é obrigatório'),
+      expiresMonth: Yup.string()
+        .min(1, 'O mês precisa ser válido')
+        .max(2, 'O mês precisa ser válido')
+        .required('O campo é obrigatório'),
+      expiresYear: Yup.string()
+        .min(4, 'O ano precisa ser válido')
+        .max(4, 'O ano precisa ser válido')
+        .required('O campo é obrigatório')
+    }),
     onSubmit: (values) => {
       purchase({
         delivery: {
@@ -103,14 +139,28 @@ const Cart = () => {
   }
 
   const openConfirmation = () => {
-    closeCart()
-    setPaymentOpen(false)
-    setConfirmationOpen(true)
+
+    if (isSuccess == true) {
+      closeCart()
+      setPaymentOpen(false)
+      setConfirmationOpen(true)
+    } else (
+      alert('Preencha os campos corretamente')
+    )
+
   }
 
   const closeConfirmation = () => {
     setConfirmationOpen(false)
     navigate(0)
+  }
+
+  const getErrorMessage = (fieldName: string, message?: string) => {
+    const isTouched = fieldName in form.touched
+    const isInvalid = fieldName in form.errors
+
+    if (isTouched && isInvalid) return message
+    return ''
   }
 
   return (
@@ -148,6 +198,9 @@ const Cart = () => {
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
               />
+              <small>
+                {getErrorMessage(('receiverName'), form.errors.receiverName)}
+              </small>
               <label htmlFor="addressDesc">Endereço</label>
               <input
                 id="addressDesc"
@@ -157,6 +210,9 @@ const Cart = () => {
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
               />
+              <small>
+                {getErrorMessage(('addressDesc'), form.errors.addressDesc)}
+              </small>
               <label htmlFor="city">Cidade</label>
               <input
                 id="city"
@@ -166,6 +222,9 @@ const Cart = () => {
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
               />
+              <small>
+                {getErrorMessage(('city'), form.errors.city)}
+              </small>
               <Complemento>
                 <div>
                   <label htmlFor="zipCode">CEP</label>
@@ -177,6 +236,9 @@ const Cart = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
+                  <small>
+                    {getErrorMessage(('zipCode'), form.errors.zipCode)}
+                  </small>
                 </div>
                 <div>
                   <label htmlFor="number">Número</label>
@@ -188,6 +250,9 @@ const Cart = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
+                  <small>
+                    {getErrorMessage(('number'), form.errors.number)}
+                  </small>
                 </div>
               </Complemento>
               <label htmlFor="complement">Complemento (opcional)</label>
@@ -200,6 +265,9 @@ const Cart = () => {
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
               />
+              <small>
+                {getErrorMessage(('complement'), form.errors.complement)}
+              </small>
               <button type='button' onClick={() => openPayment()}>Continuar com o pagamento</button>
               <button type='button' onClick={() => openCart()} >Voltar para o carrinho</button>
           </DeliveryContainer>
@@ -214,6 +282,9 @@ const Cart = () => {
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
               />
+              <small>
+                {getErrorMessage(('cardName'), form.errors.cardName)}
+              </small>
               <Cartao>
                 <div>
                   <label htmlFor="cardNumber">Número do cartão</label>
@@ -225,6 +296,9 @@ const Cart = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
+                  <small>
+                    {getErrorMessage(('cardNumber'), form.errors.cardNumber)}
+                  </small>
                 </div>
                 <div>
                   <label htmlFor="cardCode">CVV</label>
@@ -236,6 +310,9 @@ const Cart = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
+                  <small>
+                    {getErrorMessage(('cardCode'), form.errors.cardCode)}
+                  </small>
                 </div>
               </Cartao>
               <Complemento>
@@ -249,6 +326,9 @@ const Cart = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
+                  <small>
+                    {getErrorMessage(('expiresMonth'), form.errors.expiresMonth)}
+                  </small>
                 </div>
                 <div>
                   <label htmlFor="expiresYear">Ano de vencimento</label>
@@ -261,6 +341,9 @@ const Cart = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
+                  <small>
+                    {getErrorMessage(('expiresYear'), form.errors.expiresYear)}
+                  </small>
                 </div>
               </Complemento>
               <button type='submit' onClick={() => openConfirmation()} >Finalizar Pagamento</button>
