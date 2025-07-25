@@ -57,7 +57,8 @@ const Cart = () => {
         .min(5, 'O nome precisa ter pelo menos 5 caracteres')
         .required('O campo é obrigatório'),
       cardNumber: Yup.string()
-        .min(5, 'O número precisa ter pelo menos 5 caracteres')
+        .min(16, 'O número do cartão precisa ter 16 caracteres')
+        .max(16, 'O número do cartão precisa ter 16 caracteres')
         .required('O campo é obrigatório'),
       cardCode: Yup.string()
         .min(3, 'O CVV precisa ter 3 caracteres')
